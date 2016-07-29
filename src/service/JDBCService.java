@@ -1,7 +1,6 @@
 package service;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -18,17 +17,18 @@ import java.util.Properties;
  *
  * @author Alex
  */
-
-public class JDBCService {
-    private final static Logger logger = Logger.getLogger(JDBCService.class);
+@Deprecated
+public class JDBCService{
     private static final String CONFIG_FILE = "local.properties";
+    private static final String DRIVER = "db.driver";
+    private static final String DB_NAME = "db.name";
+    private static final String DB_URL = "db.url";
+    private static final String DB_USER = "db.user";
+    private static final String DB_SETTING = "db.settings";
+    private final static Logger logger = Logger.getLogger(JDBCService.class);
     private static JDBCService ourInstance = new JDBCService();
-    private final static String DRIVER = "db.driver";
-    private final static String DB_NAME = "db.name";
-    private final static String DB_URL = "db.url";
-    private final static String DB_USER = "db.user";
-    private final static String DB_SETTING = "db.settings";
     private static Properties properties;
+    private Executor executor;
     private Connection connection;
 
     public static JDBCService getInstance() {
@@ -40,7 +40,6 @@ public class JDBCService {
 
     private JDBCService() {
         properties = new Properties();
-        PropertyConfigurator.configure("log4j.properties");
         try( InputStream in= new BufferedInputStream(
                 new FileInputStream(CONFIG_FILE) ) ){
             properties.load(in);
@@ -48,9 +47,10 @@ public class JDBCService {
             logger.error("DB config file doesn't exist "+ex.getMessage());
         }
         connect();
+        executor = new Executor(connection);
     }
 
-    private void connect(){
+    public void connect(){
         try {
             Driver driver = (Driver) Class.forName(properties.getProperty(DRIVER)).newInstance();
             DriverManager.registerDriver(driver);
@@ -74,11 +74,16 @@ public class JDBCService {
     public Connection getConnection(){
         return connection;
     }
+
     public void close(){
         try {
             connection.close();
         } catch (SQLException e) {
             logger.error("Can't close connection "+ e.getMessage());
         }
+    }
+
+    public Executor getExecutor(){
+        return executor;
     }
 }

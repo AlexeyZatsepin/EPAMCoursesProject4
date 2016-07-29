@@ -1,10 +1,7 @@
-import dao.ClientDAO;
-import dao.ClientDAOImpl;
+import dao.DataAccessObject;
 import entity.Client;
-import service.Executor;
-import service.JDBCService;
-
-import java.sql.SQLException;
+import org.apache.log4j.PropertyConfigurator;
+import service.DBService;
 
 /**
  * EPAM_Project_4_WEB_APP
@@ -13,13 +10,21 @@ import java.sql.SQLException;
  * @author Alex
  */
 public class Main{
-    public static void main(String[] args) throws SQLException {
-        JDBCService connector = JDBCService.getInstance();
-        Client client = new Client("bla",1268,"asa");
-        ClientDAO dao = new ClientDAOImpl(new Executor(connector.getConnection()));
-        dao.insertClient(client);
-        System.out.println(dao.getClient(1));
-        connector.close();
+    public static void main(String[] args){
+        PropertyConfigurator.configure("log4j.properties");
+        DBService service = new DBService();
+        //Client client = new Client("bla",19733998,"asa");
+        //Payment payment = new Payment(100L);
+        //CreditCard creditCard = new CreditCard(client,payment,111,new Date(System.currentTimeMillis()),"VISA");
 
+        DataAccessObject<Client> dao = service.getDAO(Client.class);
+
+        Client client = dao.get(11);
+        dao.insert(new Client("as",1,"as"));
+        client.setAdress("fasdas");
+        dao.update(client);
+
+
+        service.close();
     }
 }

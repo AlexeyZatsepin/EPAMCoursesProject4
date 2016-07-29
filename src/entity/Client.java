@@ -1,16 +1,34 @@
 package entity;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 /**
  * EPAM_Project_4_WEB_APP
  * Created 7/22/16, with IntelliJ IDEA
  *
  * @author Alex
  */
-public class Client{
+@Entity
+@Table(name="Clients")
+public class Client implements Serializable{
+    @Id
+    @Column(name = "client_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "fio")
     private String fio;
+
+    @Column(name = "mobile_number",unique = true)
     private int mobileNumber;
+
+    @Column(name = "adress")
     private String adress;
+
+    @SuppressWarnings("UnusedDeclaration")
+    public Client() {
+    }
 
     public Client(String fio, int mobileNumber, String adress) {
         this.fio = fio;
@@ -49,4 +67,10 @@ public class Client{
     public void setAdress(String adress) {
         this.adress = adress;
     }
+
+    public void createBill(Client to,long amount){
+        //TODO
+    }
+
+
 }

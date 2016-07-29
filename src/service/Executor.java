@@ -11,6 +11,7 @@ import java.sql.Statement;
  *
  * @author Alex
  */
+@Deprecated
 public class Executor {
     private final Connection connection;
 
