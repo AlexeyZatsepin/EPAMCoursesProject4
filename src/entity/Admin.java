@@ -1,6 +1,9 @@
 package entity;
 
+import service.Constants;
+
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 /**
@@ -17,17 +20,23 @@ public class Admin implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "fio")
-    private String fio;
+    @Column(name = "login")
+    @Pattern(regexp = Constants.REGEX_NICKNAME)
+    private String login;
+
+    @Column(name = "password")
+    @Pattern(regexp = Constants.REGEX_PASSWORD_LONG)
+    private String password;
 
     @Column(name = "mobile_number",unique = true)
+    @Pattern(regexp = Constants.REGEX_PHONE)
     private int mobileNumber;
 
     @SuppressWarnings("UnusedDeclaration")
     public Admin(){}
 
-    public Admin(String fio, int mobileNumber) {
-        this.fio = fio;
+    public Admin(String login, int mobileNumber) {
+        this.login = login;
         this.mobileNumber = mobileNumber;
     }
 
@@ -40,11 +49,11 @@ public class Admin implements Serializable {
     }
 
     public String getFio() {
-        return fio;
+        return login;
     }
 
     public void setFio(String fio) {
-        this.fio = fio;
+        this.login = fio;
     }
 
     public long getId() {

@@ -23,6 +23,7 @@ public class Payment implements Serializable{
     @Column(name = "is_blocked")
     private boolean isBlocked;
 
+
     @SuppressWarnings("UnusedDeclaration")
     public Payment(){}
 
@@ -54,4 +55,6 @@ public class Payment implements Serializable{
     public void setBlocked(boolean blocked) {
         isBlocked = blocked;
     }
+
+
 }

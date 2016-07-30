@@ -1,6 +1,9 @@
 package entity;
 
+import service.Constants;
+
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -18,7 +21,7 @@ public class CreditCard implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
 
@@ -26,8 +29,12 @@ public class CreditCard implements Serializable {
     @JoinColumn(name = "payment_id")
     private Payment payment;
 
-    @Column(name = "cvv",unique = true)
+    @Column(name = "cvv")
     private int cvv;
+
+    @Column(name = "card_number")
+    @Pattern(regexp = Constants.REGEX_CARD_ID)
+    private String number;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "expires_end")
@@ -37,17 +44,25 @@ public class CreditCard implements Serializable {
     @Column(name="provider", columnDefinition="enum('VISA','MASTERCARD')")
     private String provider;
 
+    @Column(name = "password", columnDefinition = "0000", length = 4)
+    @Pattern(regexp = Constants.REGEX_PASSWORD_SHORT)
+    private String password;
+
+    @Column(name = "is_blocked")
+    private boolean isBlocked;
 
 
     @SuppressWarnings("UnusedDeclaration")
     public CreditCard(){}
 
-    public CreditCard(Client client, Payment payment, int cvv, Date expiresEnd, String provider) {
+    public CreditCard(Client client, Payment payment,String password, int cvv, Date expiresEnd, String provider) {
         this.client = client;
         this.payment = payment;
+        this.password = password;
         this.cvv = cvv;
         this.expiresEnd = expiresEnd;
         this.provider = provider;
+        this.isBlocked = false;
     }
 
     public long getId() {
@@ -96,5 +111,31 @@ public class CreditCard implements Serializable {
 
     public void setProvider(String provider) {
         this.provider = provider;
+    }
+
+    public void setCvv(int cvv) {
+        this.cvv = cvv;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "CreditCard{" +
+                "id=" + id +
+                ", client=" + client +
+                ", payment=" + payment +
+                ", cvv=" + cvv +
+                ", expiresEnd=" + expiresEnd +
+                ", provider='" + provider + '\'' +
+                ", password='" + password + '\'' +
+                ", isBlocked=" + isBlocked +
+                '}';
     }
 }

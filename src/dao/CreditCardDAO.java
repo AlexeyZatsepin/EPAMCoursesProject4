@@ -1,7 +1,11 @@
 package dao;
 
 import entity.CreditCard;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
+import service.DBService;
 
 import java.util.Date;
 import java.util.List;
@@ -14,23 +18,39 @@ import java.util.List;
  */
 public class CreditCardDAO extends DataAccessObject<CreditCard> {
 
-    public CreditCardDAO(Session session) {
-        super(session,CreditCard.class);
+    public CreditCardDAO(DBService service) {
+        super(service,CreditCard.class);
     }
 
 
     public CreditCard findByPaymentId(long paymentId){
-        return null; //TODO
+        Session session = service.getCurrentSession();
+        Criteria cr = session.createCriteria(CreditCard.class);
+        cr.add(Restrictions.eq("payment_id", paymentId));
+        CreditCard result = (CreditCard) cr.uniqueResult();
+        session.close();
+        return result;
     }
 
     public List<CreditCard> findByClientId(long clientId){
-        return null; //TODOg
+        return findByRestriction(Restrictions.eq("client_id", clientId));
     }
+
+
     public List<CreditCard> findByExpiresDate(Date date){
-        return null; //TODO
+        return findByRestriction(Restrictions.eq("date", date));
     }
 
     public List<CreditCard> findAllByProvider(String provider){
-        return null; //TODO
+        return findByRestriction(Restrictions.eq("provider", provider));
+    }
+
+    private List<CreditCard> findByRestriction(Criterion criterion){
+        Session session = service.getCurrentSession();
+        Criteria cr = session.createCriteria(CreditCard.class);
+        cr.add(criterion);
+        List<CreditCard> result = cr.list();
+        session.close();
+        return result;
     }
 }

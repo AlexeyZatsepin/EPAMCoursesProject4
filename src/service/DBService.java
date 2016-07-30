@@ -1,7 +1,6 @@
 package service;
 
-import dao.ClientDAO;
-import dao.DataAccessObject;
+import dao.*;
 import entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -36,15 +35,15 @@ public class DBService{
 
     public DataAccessObject getDAO(Class cls) {
         if (cls == Client.class){
-            return new ClientDAO(getCurrentSession());
+            return new ClientDAO(this);
         }else if(cls == Admin.class){
-
+            return new AdminDAO(this);
         }else if(cls == Bill.class){
-
+            return new BillDAO(this);
         }else if(cls == CreditCard.class){
-
+            return new CreditCardDAO(this);
         }else if(cls == Payment.class){
-
+            return new PaymentDAO(this);
         }
         return null;
     }

@@ -1,7 +1,7 @@
 package dao;
 
 import entity.Payment;
-import org.hibernate.Session;
+import service.DBService;
 
 /**
  * EPAM_Project_4_WEB_APP
@@ -10,7 +10,7 @@ import org.hibernate.Session;
  * @author Alex
  */
 public class PaymentDAO extends DataAccessObject<Payment>{
-    public PaymentDAO(Session session) {
-        super(session, Payment.class);
+    public PaymentDAO(DBService service) {
+        super(service, Payment.class);
     }
 }
