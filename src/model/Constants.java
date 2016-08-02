@@ -1,4 +1,4 @@
-package service;
+package model;
 
 /**
  * EPAM_Project_4_WEB_APP

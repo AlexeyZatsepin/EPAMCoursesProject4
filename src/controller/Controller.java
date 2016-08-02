@@ -1,3 +1,5 @@
+package controller;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,8 +15,8 @@ import java.util.GregorianCalendar;
  * @author Alex
  */
 
-@WebServlet(urlPatterns = "/timeaction", name = "hello")
-public class TimeServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/", name = "hello")
+public class Controller extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         process(req, resp);

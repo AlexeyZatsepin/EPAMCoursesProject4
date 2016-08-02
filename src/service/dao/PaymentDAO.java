@@ -1,6 +1,6 @@
-package dao;
+package service.dao;
 
-import entity.Payment;
+import model.entity.Payment;
 import service.DBService;
 
 /**

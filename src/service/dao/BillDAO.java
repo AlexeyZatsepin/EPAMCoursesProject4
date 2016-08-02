@@ -1,6 +1,6 @@
-package dao;
+package service.dao;
 
-import entity.Bill;
+import model.entity.Bill;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
