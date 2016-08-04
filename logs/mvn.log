@@ -1,0 +1,59 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building app 1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ app ---
+[debug] execute contextualize
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ app ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 21 source files to /Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/target/classes
+[WARNING] /Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/src/main/java/model/service/DataBaseService.java: /Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/src/main/java/model/service/DataBaseService.java uses or overrides a deprecated API.
+[WARNING] /Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/src/main/java/model/service/DataBaseService.java: Recompile with -Xlint:deprecation for details.
+[WARNING] /Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/src/main/java/model/dao/AbstractGenericDAO.java: Some input files use unchecked or unsafe operations.
+[WARNING] /Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/src/main/java/model/dao/AbstractGenericDAO.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ app ---
+[debug] execute contextualize
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ app ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ app ---
+[INFO] No tests to run.
+[INFO] Surefire report directory: /Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-war-plugin:2.6:war (default-war) @ app ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [app] in [/Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/target/app-1]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/src/main/webapp]
+[INFO] Webapp assembled in [406 msecs]
+[INFO] Building war: /Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/target/app-1.war
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ app ---
+[INFO] Installing /Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/target/app-1.war to /Users/Alex/.m2/repository/app/app/1/app-1.war
+[INFO] Installing /Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/pom.xml to /Users/Alex/.m2/repository/app/app/1/app-1.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 13.275s
+[INFO] Finished at: Wed Aug 03 23:56:51 EEST 2016
+[INFO] Final Memory: 20M/148M
+[INFO] ------------------------------------------------------------------------
