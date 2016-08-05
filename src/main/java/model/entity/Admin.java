@@ -71,4 +71,14 @@ public class Admin implements Serializable {
     public void unBlockCreditCard(Payment payment){
         payment.setBlocked(false);
     }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", mobileNumber=" + mobileNumber +
+                '}';
+    }
 }

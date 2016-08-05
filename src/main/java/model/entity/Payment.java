@@ -56,5 +56,12 @@ public class Payment implements Serializable{
         isBlocked = blocked;
     }
 
-
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "id=" + id +
+                ", amount=" + amount +
+                ", isBlocked=" + isBlocked +
+                '}';
+    }
 }

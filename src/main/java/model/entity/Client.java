@@ -15,7 +15,7 @@ import java.util.Set;
  * @author Alex
  */
 @Entity
-@Table(name="Clients")
+@Table(name= "Client")
 public class Client implements Serializable{
     @Id
     @Column(name = "client_id")
@@ -45,7 +45,7 @@ public class Client implements Serializable{
     @Column(name = "adress")
     private String adress;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
     private Set<CreditCard> cards;
 
     @SuppressWarnings("UnusedDeclaration")
@@ -144,7 +144,6 @@ public class Client implements Serializable{
         }
         return total;
     }
-
 
     @Override
     public String toString() {

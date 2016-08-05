@@ -20,15 +20,17 @@ public class LogInCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response, Context context) throws ServletException, IOException {
         String password = request.getParameter("password");
         String email = request.getParameter("email");
-        ClientDAO dao = (ClientDAO) context.getDBService().getClientDAO();
-        long userId  = dao.getUserByParams(email, password);
+        ClientDAO clientDAO = (ClientDAO) context.getDBService().getClientDAO();
+        long userId  = clientDAO.getUserByParams(email, password);
 
         if (userId < 0) { // user doesn't exist
             request.setAttribute("message", "Wrong login or password");
             return "index.jsp";
         }
-        request.setAttribute("user", dao.get(userId));
         request.getSession().setAttribute("userId", userId);
+
+        request.setAttribute("user", clientDAO.get(userId));
+        //request.setAttribute("user_cards", userId);
         return "./WEB-INF/views/userProfile.jsp";
     }
 }

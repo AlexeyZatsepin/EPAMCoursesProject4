@@ -84,4 +84,14 @@ public class Bill implements Serializable{
         this.timestamp = timestamp;
     }
 
+    @Override
+    public String toString() {
+        return "Bill{" +
+                "id=" + id +
+                ", from=" + from +
+                ", to=" + to +
+                ", amount=" + amount +
+                ", timestamp=" + timestamp +
+                '}';
+    }
 }

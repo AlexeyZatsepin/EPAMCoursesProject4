@@ -41,7 +41,7 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Assembling webapp [app] in [/Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/target/app-1]
 [INFO] Processing war project
 [INFO] Copying webapp resources [/Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/src/main/webapp]
-[INFO] Webapp assembled in [458 msecs]
+[INFO] Webapp assembled in [548 msecs]
 [INFO] Building war: /Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/target/app-1.war
 [INFO] 
 [INFO] --- maven-install-plugin:2.3.1:install (default-install) @ app ---
@@ -50,7 +50,7 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 12.717s
-[INFO] Finished at: Fri Aug 05 10:40:08 EEST 2016
-[INFO] Final Memory: 19M/134M
+[INFO] Total time: 11.413s
+[INFO] Finished at: Fri Aug 05 23:20:22 EEST 2016
+[INFO] Final Memory: 17M/121M
 [INFO] ------------------------------------------------------------------------
