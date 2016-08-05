@@ -24,7 +24,6 @@ public class Context {
     private Context() {
         context = new HashMap<>();
         context.put(DataBaseService.class,new DataBaseService());
-        context.put(AuthService.class,new AuthService());
     }
 
     public void add(Class<?> cls,Object obj){
@@ -37,11 +36,6 @@ public class Context {
     public DataBaseService getDBService(){
         return (DataBaseService) context.get(DataBaseService.class);
     }
-
-    public AuthService getAuthService(){
-        return (AuthService) context.get(AuthService.class);
-    }
-
 
     public void close(){
         ((DataBaseService) context.get(DataBaseService.class)).close();

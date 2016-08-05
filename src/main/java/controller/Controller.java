@@ -4,6 +4,7 @@ import controller.commands.Command;
 import controller.commands.CommandList;
 import model.service.Context;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static model.Constants.LOG4J_CONFIG_FILE;
+
 /**
  * EPAM_Project_4_WEB_APP
  * Created 7/16/16, with IntelliJ IDEA
@@ -19,15 +22,16 @@ import java.io.IOException;
  * @author Alex
  */
 
-@WebServlet(urlPatterns = "/", name = "main")
+@WebServlet(urlPatterns = {"/","/admin"}, name = "main")
 public class Controller extends HttpServlet{
     private Context context;
     private final static Logger logger = Logger.getLogger(Controller.class);
 
     @Override
     public void init() throws ServletException {
-        //PropertyConfigurator.configure("log4j.properties");
+        PropertyConfigurator.configure(LOG4J_CONFIG_FILE);
         context = Context.getInstance();
+        logger.info("init controller");
     }
 
     @Override
@@ -41,10 +45,12 @@ public class Controller extends HttpServlet{
     }
 
     private void process(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+        String path = request.getServletPath();
+        if (path.contains("admin")){
+            //TODO
+        }
         String commandName = request.getParameter("command");
-        //TODO log command
-        System.out.println(commandName);
-
+        logger.info(commandName);
         Command command = CommandList.valueOf(commandName).getCommand();
         String link = command.execute(request, response,context);
         request.getRequestDispatcher(link).forward(request,response);
@@ -54,5 +60,6 @@ public class Controller extends HttpServlet{
     public void destroy() {
         super.destroy();
         context.close();
+        logger.info("destroy controller");
     }
 }

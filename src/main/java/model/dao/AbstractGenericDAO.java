@@ -27,18 +27,18 @@ public abstract class AbstractGenericDAO<T> implements GenericDAO<T>{
     public T get(long id){
         Session session = service.getSession();
         Transaction transaction = null;
+        T object = null;
         try {
             transaction = session.beginTransaction();
-            T object = (T) session.get(type,id);
+            object = (T) session.get(type,id);
             transaction.commit();
-            return object;
         }catch (HibernateException e) {
             if(transaction!=null) transaction.rollback();
             log.error(e);
-            return null;
         }finally {
             session.close();
         }
+        return object;
     }
 
 

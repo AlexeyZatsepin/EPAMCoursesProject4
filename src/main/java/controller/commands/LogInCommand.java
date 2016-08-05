@@ -1,6 +1,7 @@
 package controller.commands;
 
 
+import model.dao.impl.ClientDAO;
 import model.service.Context;
 
 import javax.servlet.ServletException;
@@ -19,15 +20,15 @@ public class LogInCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response, Context context) throws ServletException, IOException {
         String password = request.getParameter("password");
         String email = request.getParameter("email");
-        //String login = request.getParameter("login");
+        ClientDAO dao = (ClientDAO) context.getDBService().getClientDAO();
+        long userId  = dao.getUserByParams(email, password);
 
-        System.out.println(password);
-        //long userId  = context.getAuthService().isValidUser(email, password);
-//        if (userId<0) {
-//            request.setAttribute("message", "Wrong login or password");
-//            return "index.jsp";
-//        }
-//        request.getSession().setAttribute("userId", userId);
+        if (userId < 0) { // user doesn't exist
+            request.setAttribute("message", "Wrong login or password");
+            return "index.jsp";
+        }
+        request.setAttribute("user", dao.get(userId));
+        request.getSession().setAttribute("userId", userId);
         return "./WEB-INF/views/userProfile.jsp";
     }
 }

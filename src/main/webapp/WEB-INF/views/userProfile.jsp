@@ -1,16 +1,20 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Alex
-  Date: 8/3/16
-  Time: 11:04 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"  %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>Title</title>
+    <link href="../../styles/main.css" rel="stylesheet" type="text/css">
+    <title>
+        Profile
+    </title>
 </head>
 <body>
-Hello <%=request.getParameter("userId")%>
+<c:out value="${user.getFirstName()}"/>
+<c:out value="${user.getSecondName()}"/>
+<c:out value="${user.getMobileNumber()}"/>
+<c:out value="${user.getAdress()}"/>
+<c:out value="${user.getEmail()}"/>
+<c:forEach items="user.getCards()" var="card">
+    <c:out value="${card}"/>
+</c:forEach>
 </body>
 </html>

@@ -36,4 +36,6 @@ public interface Constants {
 
     String HIBERNATE_CONFIG_FILE = "/Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/config/hibernate.cfg.xml";
 
+    String LOG4J_CONFIG_FILE = "/Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/config/log4j.properties";
+
 }
