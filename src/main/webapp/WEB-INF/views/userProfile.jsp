@@ -15,7 +15,8 @@
     <title>
         <c:out value="${user.getFirstName()}"/>
         <c:out value="${user.getSecondName()}"/>
-        | Banking</title>
+        | Banking
+    </title>
 </head>
 <body>
 <a class="cd-nav-trigger cd-text-replace" href="#primary-nav">Menu<span aria-hidden="true" class="cd-icon"></span></a>
@@ -125,7 +126,15 @@
             <div class="cd-project-info">
                 <p>
                     <c:out value="${user}"/>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quod dicta aliquid nemo repellendus distinctio minus dolor aperiam suscipit, ea enim accusantium, deleniti qui sequi sint nihil modi amet eligendi, quidem animi error labore voluptatibus sed. Qui magnam labore, iusto nostrum. Praesentium non, impedit accusantium consequatur officia architecto, mollitia placeat aperiam tenetur pariatur voluptatibus corrupti vitae deserunt! Nostrum non mollitia deserunt ipsam. Sunt quaerat natus cupiditate iure ipsa voluptatibus recusandae ratione vitae amet distinctio, voluptas, minus vero expedita ea fugit similique sit cumque ad id facere? Ab quas, odio neque quis ratione. Natus labore sit esse, porro placeat eum hic.
+                    <form action="Controller" method="post" name = "edit_profile">
+                        <input type="text" name="mobile_number" placeholder="<c:out value="${user.getMobileNumber()}"/>">
+                        <input type="text" name="adress" placeholder="<c:out value="${user.getAdress()}"/>">
+                        <input type="text" name="email" placeholder="<c:out value="${user.getEmail()}"/>">
+                        <input type="password" name="old_password" placeholder="type old password">
+                        <input type="password" name="new_password" placeholder="type new password">
+                        <input type="hidden" name="command" value="EDIT_PROFILE"/>
+                        <button type="submit" name="command" value="login">edit</button>
+                    </form>
                 </p>
             </div> <!-- .cd-project-info -->
         </li>
@@ -137,9 +146,9 @@
 <nav class="cd-primary-nav" id="primary-nav">
     <ul>
         <li class="cd-label">Navigation</li>
-        <li><a href="#0">Our services</a></li>
+        <li><a href="/Controller?command=GET_SERVICES">Our services</a></li>
         <li><a href="#0">Our addresses</a></li>
-        <li><a href="#0">Contact us</a></li>
+        <li><a href="/Controller?command=SEND_MAIL">Contact us</a></li>
     </ul>
 </nav> <!-- .cd-primary-nav -->
 <script src="../../js/jquery-2.1.1.js"></script>

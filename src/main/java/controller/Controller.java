@@ -45,10 +45,10 @@ public class Controller extends HttpServlet{
     }
 
     private void process(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        String path = request.getServletPath();
-        if (path.contains("admin")){
-            //TODO
-        }
+//        String path = request.getServletPath();
+//        if (path.contains("admin")){
+//            //TODO
+//        }
         String commandName = request.getParameter("command");
         logger.info(commandName);
         Command command = CommandList.valueOf(commandName).getCommand();

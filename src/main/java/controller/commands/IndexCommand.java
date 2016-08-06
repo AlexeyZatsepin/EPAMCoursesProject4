@@ -16,6 +16,6 @@ import java.io.IOException;
 public class IndexCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response, Context context) throws ServletException, IOException {
-        return null;
+        return "index.jsp";
     }
 }

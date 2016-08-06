@@ -1,16 +1,22 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Alex
-  Date: 8/6/16
-  Time: 12:33 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Contact us</title>
+    <link href="../../css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
+<div class="login-page">
+    <div class="form">
+        <form method="POST" action="Controller" class="login-form">
+            <input type="text" name="subject" placeholder="subject">
+            <input type="text" name="message" placeholder="message">
+            <input type="text" name="from" placeholder="your email">
+            <input type="hidden" name="command" value="SEND_MAIL"/>
+            <button type="submit" name="command" value="login">Send</button>
+            <p class="message"><c:out value="${message}"/></p>
+        </form>
+    </div>
+</div>
 </body>
 </html>
