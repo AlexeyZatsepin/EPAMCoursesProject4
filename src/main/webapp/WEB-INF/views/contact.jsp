@@ -2,7 +2,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Contact us</title>
+    <title>
+        <c:out value="${user.getFirstName()}"/>
+        <c:out value="${user.getSecondName()}"/>
+        | Contact us
+    </title>
     <link href="../../css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>

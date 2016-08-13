@@ -125,6 +125,22 @@ public class CreditCard implements Serializable {
         this.password = password;
     }
 
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public boolean isBlocked() {
+        return isBlocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        isBlocked = blocked;
+    }
+
     @Override
     public String toString() {
         return "CreditCard{" +

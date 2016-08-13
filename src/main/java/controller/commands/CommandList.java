@@ -9,9 +9,11 @@ package controller.commands;
 public enum CommandList {
     INDEX(new IndexCommand()),
     LOG_IN(new LogInCommand()),
+    LOG_UP(new LogUpCommand()),
     EDIT_PROFILE(new EditProfileCommand()),
     SEND_MAIL(new SendMailCommand()),
-    GET_SERVICES(new GetServicesCommand());
+    GET_SERVICES(new GetServicesCommand()),
+    GET_ADRESSES(new GetAdressesCommand());
 
     private Command command;
 

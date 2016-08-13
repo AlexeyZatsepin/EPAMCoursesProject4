@@ -22,7 +22,7 @@ import static model.Constants.LOG4J_CONFIG_FILE;
  * @author Alex
  */
 
-@WebServlet(urlPatterns = {"/","/admin"}, name = "main")
+@WebServlet(urlPatterns = {"/", "/admin"}, name = "controller")
 public class Controller extends HttpServlet{
     private Context context;
     private final static Logger logger = Logger.getLogger(Controller.class);
@@ -45,10 +45,6 @@ public class Controller extends HttpServlet{
     }
 
     private void process(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-//        String path = request.getServletPath();
-//        if (path.contains("admin")){
-//            //TODO
-//        }
         String commandName = request.getParameter("command");
         logger.info(commandName);
         Command command = CommandList.valueOf(commandName).getCommand();
