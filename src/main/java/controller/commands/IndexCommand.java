@@ -1,5 +1,6 @@
 package controller.commands;
 
+import model.dao.impl.ClientDAO;
 import model.service.Context;
 
 import javax.servlet.ServletException;
@@ -16,6 +17,14 @@ import java.io.IOException;
 public class IndexCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response, Context context) throws ServletException, IOException {
-        return "index.jsp";
+        Object userId = request.getSession().getAttribute("userId");
+        if(userId == null){
+            return "index.jsp";
+        }else{
+            ClientDAO clientDAO = (ClientDAO) context.getDBService().getClientDAO();
+            request.setAttribute("user", clientDAO.get((long)userId));
+            request.setAttribute("usersList", clientDAO.getAll());
+            return "./WEB-INF/views/userProfile.jsp";
+        }
     }
 }

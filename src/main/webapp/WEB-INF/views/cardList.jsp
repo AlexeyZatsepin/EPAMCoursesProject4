@@ -17,8 +17,8 @@
     </c:forEach>
     </tbody>
     <tfoot>
-    <th scope="row">Total</th>
-    <td colspan="3">120$</td>
+    <th scope="row">Total:</th>
+    <td colspan="3"><c:out value="${card.getTotal()}"/></td>
     </tfoot>
 </table>
 

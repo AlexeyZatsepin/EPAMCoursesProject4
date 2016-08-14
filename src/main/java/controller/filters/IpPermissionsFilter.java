@@ -14,12 +14,11 @@ import java.io.IOException;
  * @author Alex
  */
 @WebFilter(servletNames = {"controller"},urlPatterns = {"/*"}, filterName = "ip black list filter")
-public class PermissionsFilter implements Filter {
+public class IpPermissionsFilter implements Filter {
     private final String[] ADMIN_IP_WHITE_LIST = {"192.168.1.103","127.0.0.1"};
 
     @Override
     public void init(FilterConfig config) throws ServletException{
-        System.out.println("init");
     }
 
     @Override
@@ -49,6 +48,6 @@ public class PermissionsFilter implements Filter {
 
     @Override
     public void destroy() {
-        System.out.println("destroy");
+
     }
 }

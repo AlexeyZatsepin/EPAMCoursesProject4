@@ -16,7 +16,7 @@ import java.io.IOException;
 public class LogUpCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response, Context context) throws ServletException, IOException {
-        request.getSession().invalidate();
+        request.getSession().removeAttribute("userId");
         return "index.jsp";
     }
 }

@@ -13,7 +13,8 @@ public enum CommandList {
     EDIT_PROFILE(new EditProfileCommand()),
     SEND_MAIL(new SendMailCommand()),
     GET_SERVICES(new GetServicesCommand()),
-    GET_ADRESSES(new GetAdressesCommand());
+    GET_ADRESSES(new GetAdressesCommand()),
+    CREATE_BILL(new CreateBillCommand());
 
     private Command command;
 

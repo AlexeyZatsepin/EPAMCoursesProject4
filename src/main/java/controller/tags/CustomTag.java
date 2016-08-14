@@ -26,7 +26,7 @@ public class CustomTag extends SimpleTagSupport{
         if (message != null) {
           /* Use message from attribute */
             JspWriter out = getJspContext().getOut();
-            out.println( message );
+            out.println(message);
         }
         else {
           /* use message from the body */

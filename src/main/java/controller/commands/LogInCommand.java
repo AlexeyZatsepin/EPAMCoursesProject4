@@ -30,7 +30,7 @@ public class LogInCommand implements Command {
         request.getSession().setAttribute("userId", userId);
 
         request.setAttribute("user", clientDAO.get(userId));
-        //request.setAttribute("user_cards", userId);
+        request.setAttribute("usersList", clientDAO.getAll());
         return "./WEB-INF/views/userProfile.jsp";
     }
 }
