@@ -48,6 +48,6 @@ public class CreateBillCommand implements Command {
             billDAO.insert(bill);
             request.setAttribute("message", "Success");
         }
-        return "./WEB-INF/views/billStatus.jsp";
+        return "jsp/billStatus.jsp";
     }
 }

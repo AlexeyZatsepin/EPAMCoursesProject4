@@ -1,11 +1,11 @@
 package model.dao.impl;
 
+import model.dao.AbstractGenericDAO;
 import model.entity.Bill;
+import model.service.DataBaseService;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-import model.service.DataBaseService;
-import model.dao.AbstractGenericDAO;
 
 import java.util.List;
 

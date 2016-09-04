@@ -1,10 +1,10 @@
 package model.dao;
 
+import model.service.DataBaseService;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import model.service.DataBaseService;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author Alex
  */
-public abstract class AbstractGenericDAO<T> implements GenericDAO<T>{
+public abstract class AbstractGenericDAO<T> implements GenericDAO<T> {
     protected final static Logger log = Logger.getLogger(GenericDAO.class);
     protected DataBaseService service;
     protected final Class<T> type;

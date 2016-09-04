@@ -8,8 +8,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-import java.io.File;
-
 import static model.Constants.HIBERNATE_CONFIG_FILE;
 
 /**
@@ -24,7 +22,7 @@ public class DataBaseService {
 
     public DataBaseService() {
         Configuration configuration = new Configuration();
-        configuration.configure(new File(HIBERNATE_CONFIG_FILE));
+        configuration.configure(HIBERNATE_CONFIG_FILE);
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                 .applySettings(configuration.getProperties());
         sessionFactory = configuration.buildSessionFactory(builder.build());

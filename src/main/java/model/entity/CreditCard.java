@@ -33,12 +33,12 @@ public class CreditCard implements Serializable {
     private int cvv;
 
     @Column(name = "card_number")
-    @Pattern(regexp = Constants.REGEX_CARD_ID)
+    //@Pattern(regexp = Constants.REGEX_CARD_ID)
     private String number;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "expires_end")
-    private java.util.Date expiresEnd;
+    private Date expiresEnd;
 
 
     @Column(name="provider", columnDefinition="enum('VISA','MASTERCARD')")
@@ -55,7 +55,7 @@ public class CreditCard implements Serializable {
     @SuppressWarnings("UnusedDeclaration")
     public CreditCard(){}
 
-    public CreditCard(Client client, Payment payment,String password, int cvv, Date expiresEnd, String provider) {
+    public CreditCard(Client client, Payment payment, String password, int cvv, Date expiresEnd, String provider) {
         this.client = client;
         this.payment = payment;
         this.password = password;

@@ -16,6 +16,6 @@ import java.io.IOException;
 public class GetAdressesCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response, Context context) throws ServletException, IOException {
-        return "./WEB-INF/views/adresses.jsp";
+        return "jsp/adresses.jsp";
     }
 }

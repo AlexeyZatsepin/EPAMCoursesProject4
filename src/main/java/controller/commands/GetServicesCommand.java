@@ -16,6 +16,6 @@ import java.io.IOException;
 public class GetServicesCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response, Context context) throws ServletException, IOException {
-        return "./WEB-INF/views/services.jsp";
+        return "jsp/services.jsp";
     }
 }

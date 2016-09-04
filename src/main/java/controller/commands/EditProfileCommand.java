@@ -30,13 +30,13 @@ public class EditProfileCommand implements Command {
         if (!client.getPassword().equals(oldPassword)){
             request.setAttribute("message", "Wrong old password");
             request.setAttribute("user",client);
-            return "./WEB-INF/views/userProfile.jsp";
+            return "jsp/userProfile.jsp";
         }
         client.setPassword(newPassword);
         client.setAdress(adress);
         client.setEmail(email);
         client.setMobileNumber(Integer.valueOf(number));
         request.setAttribute("user", client);
-        return "./WEB-INF/views/userProfile.jsp";
+        return "jsp/userProfile.jsp";
     }
 }

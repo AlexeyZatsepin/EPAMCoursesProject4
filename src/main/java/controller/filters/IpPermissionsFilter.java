@@ -13,12 +13,12 @@ import java.io.IOException;
  *
  * @author Alex
  */
-@WebFilter(servletNames = {"controller"},urlPatterns = {"/*"}, filterName = "ip black list filter")
+@WebFilter(servletNames = {"controller"},urlPatterns = {"/app-1/admin/*"}, filterName = "ip black list filter")
 public class IpPermissionsFilter implements Filter {
     private final String[] ADMIN_IP_WHITE_LIST = {"192.168.1.103","127.0.0.1"};
 
     @Override
-    public void init(FilterConfig config) throws ServletException{
+    public void init(FilterConfig config) throws ServletException {
     }
 
     @Override

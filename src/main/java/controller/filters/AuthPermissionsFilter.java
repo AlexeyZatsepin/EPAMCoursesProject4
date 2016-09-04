@@ -12,8 +12,8 @@ import java.io.IOException;
  *
  * @author Alex
  */
-@WebFilter(servletNames = {"controller"},urlPatterns = {"/*"}, filterName = "access filter")
-public class AuthPermissionsFilter implements Filter{
+@WebFilter(servletNames = {"controller"},urlPatterns = {"/app-1/","/app-1/controller/"}, filterName = "access filter")
+public class AuthPermissionsFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 

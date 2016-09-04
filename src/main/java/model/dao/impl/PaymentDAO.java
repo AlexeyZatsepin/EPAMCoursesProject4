@@ -1,8 +1,8 @@
 package model.dao.impl;
 
+import model.dao.AbstractGenericDAO;
 import model.entity.Payment;
 import model.service.DataBaseService;
-import model.dao.AbstractGenericDAO;
 
 /**
  * EPAM_Project_4_WEB_APP

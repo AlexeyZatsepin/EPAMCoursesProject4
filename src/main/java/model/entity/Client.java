@@ -48,10 +48,10 @@ public class Client implements Serializable{
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
     private Set<CreditCard> cards;
 
-    @SuppressWarnings("UnusedDeclaration")
     public Client() {
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public Client(String firstName,String secondName,String password,String email, int mobileNumber, String adress) {
         this.firstName = firstName;
         this.secondName = secondName;

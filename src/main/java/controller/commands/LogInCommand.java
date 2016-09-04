@@ -31,6 +31,6 @@ public class LogInCommand implements Command {
 
         request.setAttribute("user", clientDAO.get(userId));
         request.setAttribute("usersList", clientDAO.getAll());
-        return "./WEB-INF/views/userProfile.jsp";
+        return "jsp/userProfile.jsp";
     }
 }

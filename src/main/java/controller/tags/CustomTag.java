@@ -27,8 +27,7 @@ public class CustomTag extends SimpleTagSupport{
           /* Use message from attribute */
             JspWriter out = getJspContext().getOut();
             out.println(message);
-        }
-        else {
+        } else {
           /* use message from the body */
             getJspBody().invoke(sw);
             getJspContext().getOut().println(sw.toString());

@@ -34,8 +34,8 @@ public interface Constants {
 
     String REGEX_CARD_ID = "\\d{16}";
 
-    String HIBERNATE_CONFIG_FILE = "/Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/config/hibernate.cfg.xml";
+    String HIBERNATE_CONFIG_FILE = "config/hibernate.cfg.xml";
 
-    String LOG4J_CONFIG_FILE = "/Users/Alex/IdeaProjects/EPAM/EPAM_Project_4_WEB_APP/config/log4j.properties";
+    String LOG4J_CONFIG_FILE = "config/log4j.properties";
 
 }

@@ -1,12 +1,12 @@
 package model.dao.impl;
 
+import model.dao.AbstractGenericDAO;
 import model.entity.Admin;
 import model.entity.Client;
+import model.service.DataBaseService;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-import model.service.DataBaseService;
-import model.dao.AbstractGenericDAO;
 
 /**
  * EPAM_Project_4_WEB_APP

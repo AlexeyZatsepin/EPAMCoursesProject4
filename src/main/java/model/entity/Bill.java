@@ -31,7 +31,7 @@ public class Bill implements Serializable{
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dateOf")
-    private java.util.Date timestamp;
+    private Date timestamp;
 
     @SuppressWarnings("UnusedDeclaration")
     public Bill() {
